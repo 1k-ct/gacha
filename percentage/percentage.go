@@ -23,7 +23,7 @@ func checkPro(n float64) {
 	for i := 0; i < int(n); i++ {
 		var p bool
 		for !p {
-			p = dogacha.Gacha(100, 1)
+			p, _ = dogacha.Gacha(100, 1)
 			cou++
 		}
 	}
@@ -120,7 +120,7 @@ func showGlyph() {
 		for v := 0; v < int(n); v++ {
 			var b bool
 			for !b {
-				b = dogacha.Gacha(1000, i)
+				b, _ = dogacha.Gacha(1000, i)
 				cou++
 			}
 		}

@@ -16,7 +16,7 @@ func TestGacha(t *testing.T) {
 	}{
 		{
 			name: "1/100_1%",
-			args: args{all: 100, expectProbability: 1},
+			args: args{all: 100, expectProbability: 1000},
 		},
 		{
 			name: "1/1000_0.1%",
@@ -28,7 +28,7 @@ func TestGacha(t *testing.T) {
 			cou := 0
 			var hit bool
 			for !hit {
-				hit = Gacha(tt.args.all, tt.args.expectProbability)
+				hit, _ = Gacha(tt.args.all, tt.args.expectProbability)
 				cou++
 				if cou > 10000 {
 					t.Errorf("Gacha()  %v", cou)

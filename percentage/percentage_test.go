@@ -89,7 +89,7 @@ func TestArbitraryProbabilityTrim(t *testing.T) {
 	var all int64 = 100
 	var n int64 = 1
 	for i := 0; i < count; i++ {
-		b := dogacha.Gacha(all, n)
+		b, _ := dogacha.Gacha(all, n)
 		if b {
 			point++
 		}
@@ -104,7 +104,7 @@ func TestArbitraryProbabilityTrim(t *testing.T) {
 func percentageCheck(count int, all, n int64) (float64, float64, float64) {
 	point := 0
 	for i := 0; i < count; i++ {
-		b := dogacha.Gacha(all, n)
+		b, _ := dogacha.Gacha(all, n)
 		if b {
 			point++
 		}
@@ -175,7 +175,7 @@ func TestGacha(t *testing.T) {
 
 		var p bool
 		for !p {
-			p = dogacha.Gacha(100, 99)
+			p, _ = dogacha.Gacha(100, 99)
 			cou++
 		}
 	}
@@ -224,7 +224,7 @@ func TestCheckPro(t *testing.T) {
 	for i := 0; i < int(n); i++ {
 		var p bool
 		for !p {
-			p = dogacha.Gacha(100, 1)
+			p, _ = dogacha.Gacha(100, 1)
 			cou++
 		}
 	}

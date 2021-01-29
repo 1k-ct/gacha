@@ -38,3 +38,33 @@ func TestGacha(t *testing.T) {
 		})
 	}
 }
+
+func TestPercentages(t *testing.T) {
+	type args struct {
+		all int64
+		n   int64
+	}
+	tests := []struct {
+		name string
+		args args
+		want float64
+	}{
+		{
+			name: "1%",
+			args: args{all: 100, n: 1},
+			want: 0.01,
+		},
+		{
+			name: "0.1%",
+			args: args{all: 1000, n: 1},
+			want: 0.001,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := Percentages(tt.args.all, tt.args.n); got != tt.want {
+				t.Errorf("Percentages() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}

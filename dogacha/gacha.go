@@ -25,3 +25,9 @@ func Gacha(all, expectProbability int64) bool {
 	}
 	return false
 }
+
+// Percentages all:100,n:1 => 0.01(1%)
+func Percentages(all, n int64) float64 {
+	p := float64(n) / float64(all)
+	return p
+}

@@ -1,0 +1,27 @@
+package dogacha
+
+import (
+	"math/rand"
+	"time"
+)
+
+type Pro struct {
+}
+
+// New type gacha struct return *gacha
+func New() *Pro {
+	g := &Pro{}
+	return g
+}
+
+// Gacha do gacha
+// if Gacha(100, 1) is 1%, Gacha(1000, 2) is 0.2%
+// 1% chance of true else return false (99%)
+func Gacha(all, expectProbability int64) bool {
+	rand.Seed(time.Now().UnixNano())
+	p := rand.Int63n(all)
+	if 0 <= p && p <= expectProbability-1 {
+		return true
+	}
+	return false
+}
